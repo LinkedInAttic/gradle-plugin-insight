@@ -1,0 +1,16 @@
+apply plugin: 'groovy'
+apply plugin: 'idea'
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  compile gradleApi()
+  compile localGroovy()
+
+  testCompile "junit:junit:4.12"
+  testCompile "org.spockframework:spock-core:1.0-groovy-2.4@jar"
+  testCompile "cglib:cglib:3.2.1"
+  testCompile "org.objenesis:objenesis:2.2"
+}
