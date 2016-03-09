@@ -13,8 +13,6 @@ class SnapshotTaker {
   ModelSnapshot snapshot(Project project, Plugin plugin) {
     new ModelSnapshot(plugin: plugin,
         configurations: new LinkedHashSet<Configuration>(project.configurations),
-        allConfigurations: new LinkedHashSet<Configuration>(project.configurations),
-        tasks: new LinkedHashSet<Task>(project.tasks),
-        allTasks: new LinkedHashSet<Task>(project.tasks))
+        tasks: new LinkedHashSet<Task>(project.tasks))
   }
 }

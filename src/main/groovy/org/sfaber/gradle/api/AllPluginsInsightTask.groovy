@@ -6,6 +6,7 @@ import org.gradle.api.logging.Logger
 import org.gradle.api.logging.Logging
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.InputDirectory
+import org.gradle.api.tasks.InputFile
 import org.gradle.api.tasks.InputFiles
 import org.gradle.api.tasks.OutputDirectory
 import org.gradle.api.tasks.TaskAction
@@ -23,6 +24,7 @@ class AllPluginsInsightTask extends DefaultTask {
   @OutputDirectory File outputDir
   @InputFiles FileCollection classpath
   @Input String projectProviderImpl
+  @InputFile File aspectjAgent
 
   @TaskAction void generate() {
     def cp = classpath
@@ -35,6 +37,7 @@ class AllPluginsInsightTask extends DefaultTask {
       spec.classpath = cp
       spec.main = AllPluginsDocGenerator.class.name
       spec.args projectProviderImpl, pluginIdDir.absolutePath, outputDir.absolutePath
+      spec.jvmArgs "-javaagent:$aspectjAgent.absolutePath"
     }
   }
 }

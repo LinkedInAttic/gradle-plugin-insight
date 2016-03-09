@@ -1,0 +1,5 @@
+<aspectj>
+    <aspects>
+        <aspect name="org.sfaber.gradle.internal.aop.PluginLifecycleAspect"/>
+    </aspects>
+</aspectj>

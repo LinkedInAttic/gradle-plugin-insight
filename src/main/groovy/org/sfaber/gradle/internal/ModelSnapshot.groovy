@@ -10,18 +10,14 @@ import org.gradle.api.artifacts.Configuration
 class ModelSnapshot {
 
   Plugin plugin
-  Collection<Configuration> allConfigurations = []
-  Collection<Task> allTasks = []
   Collection<Configuration> configurations = []
   Collection<Task> tasks = []
 
-  ModelSnapshot delta(ModelSnapshot sn) {
+  ModelSnapshot minus(ModelSnapshot sn) {
     def out = new ModelSnapshot()
-    out.allConfigurations = allConfigurations + sn.configurations //accumulate configurations
-    out.configurations = sn.configurations - allConfigurations //only newly created configurations
-    out.allTasks = allTasks + sn.tasks
-    out.tasks = sn.tasks - allTasks
-    out.plugin = sn.plugin
+    out.configurations = configurations - sn.configurations
+    out.tasks = tasks - sn.tasks
+    out.plugin = plugin
     out
   }
 

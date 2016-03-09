@@ -8,11 +8,10 @@ class ModelBuilder {
   LinkedList<ModelSnapshot> snapshots = new LinkedList<ModelSnapshot>()
 
   void add(ModelSnapshot sn) {
-    if (snapshots.isEmpty()) {
-      snapshots.add(sn)
-    } else {
-      snapshots.add(snapshots.getLast().delta(sn))
+    for (ModelSnapshot previous : snapshots) {
+      sn = sn.minus(previous)
     }
+    snapshots.add(sn)
   }
 
   public String toString() {
