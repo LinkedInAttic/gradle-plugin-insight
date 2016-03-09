@@ -12,7 +12,7 @@ class PluginInsightPlugin implements Plugin<Project> {
   @Override
   void apply(Project project) {
     project.plugins.withType(JavaPlugin) {
-      project.tasks.withType(PluginDocTask) { PluginDocTask task ->
+      project.tasks.withType(PluginInsightTask) { PluginInsightTask task ->
         task.classpath = project.files()
         task.classpath += project.sourceSets.main.output //so that we have user's plugins
         task.classpath += project.configurations.getByName("runtime") //so that we have user's plugins' classpath/dependencies

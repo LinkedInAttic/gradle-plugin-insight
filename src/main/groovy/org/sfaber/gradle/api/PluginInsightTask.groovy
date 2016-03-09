@@ -14,9 +14,9 @@ import org.sfaber.gradle.internal.PluginDocGenerator
 /**
  * Created by sfaber on 3/6/16.
  */
-class PluginDocTask extends DefaultTask {
+class PluginInsightTask extends DefaultTask {
 
-  private final static Logger LOG = Logging.getLogger(PluginDocTask)
+  private final static Logger LOG = Logging.getLogger(PluginInsightTask)
 
   @Input String pluginId
   @OutputFile File outputFile
