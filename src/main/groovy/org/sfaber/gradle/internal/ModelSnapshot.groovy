@@ -46,9 +46,9 @@ class ModelSnapshot {
     } else {
       sb.append("    Configurations:\n")
       configurations.each {
-        sb.append("     - $it.name\n")
+        sb.append("     - $it.name")
         if (it.description) {
-          sb.append("       $it.description\n")
+          sb.append(" - $it.description\n")
         }
       }
     }

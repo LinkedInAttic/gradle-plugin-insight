@@ -31,10 +31,8 @@ class PluginDocGeneratorTest extends Specification {
     Tasks:
      - assemble - Assembles the outputs of this project.
     Configurations:
-     - archives
-       Configuration for archive artifacts.
-     - default
-       Configuration for default artifacts.
+     - archives - Configuration for archive artifacts.
+     - default - Configuration for default artifacts.
 
 
   * Plugin: ReportingBasePlugin
@@ -72,14 +70,10 @@ class PluginDocGeneratorTest extends Specification {
      - test - Runs the unit tests.
      - testClasses - Assembles test classes.
     Configurations:
-     - compile
-       Compile classpath for source set 'main'.
-     - runtime
-       Runtime classpath for source set 'main'.
-     - testCompile
-       Compile classpath for source set 'test'.
-     - testRuntime
-       Runtime classpath for source set 'test'.
+     - compile - Compile classpath for source set 'main'.
+     - runtime - Runtime classpath for source set 'main'.
+     - testCompile - Compile classpath for source set 'test'.
+     - testRuntime - Runtime classpath for source set 'test'.
 
 
 """

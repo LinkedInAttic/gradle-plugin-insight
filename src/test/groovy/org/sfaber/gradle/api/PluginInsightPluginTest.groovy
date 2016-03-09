@@ -10,7 +10,7 @@ class PluginInsightPluginTest extends Specification {
 
   def project = new ProjectBuilder().build()
 
-  def "allows creation of tasks"() {
+  def "creates and configures the task"() {
     given:
     project.plugins.apply("plugin-insight")
     project.plugins.apply("java")
@@ -20,5 +20,35 @@ class PluginInsightPluginTest extends Specification {
 
     then:
     t.classpath
+  }
+
+  def "generates plugin docs"() {
+    project.plugins.apply("plugin-insight")
+    project.plugins.apply("java")
+    def t = project.tasks['allPluginsInsight'] as AllPluginsInsightTask
+
+    //so that the java process that has access to code under test
+    def cp = System.getProperty("java.class.path")
+    t.classpath += project.files(cp.split(":"))
+
+    //so that there are some plugins we can generate documentation for
+    def f = project.file("src/main/resources/META-INF/gradle-plugins/sample-plugin.properties")
+    f.parentFile.mkdirs()
+    f.text = "implementation-class=testing.SampleGradlePlugin"
+
+    when:
+    t.generate()
+
+    then:
+    new File(t.outputDir, "sample-plugin.txt").text == """ --- Documentation for 'sample-plugin' plugin ---
+
+  * Plugin: SampleGradlePlugin
+    Tasks:
+     - sampleTask - This is sample task
+    Configurations:
+     - sampleConfiguration - This is sample configuration
+
+
+"""
   }
 }
