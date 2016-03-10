@@ -11,7 +11,7 @@ class PluginInsightTest extends Specification {
   def project = new ProjectBuilder().build()
 
   def "generates plugin docs"() {
-    project.plugins.apply("plugin-insight")
+    project.plugins.apply("com.getcraftdone.plugin-insight")
     project.plugins.apply("java")
     def t = project.tasks['pluginsInsight'] as PluginInsightTask
 
