@@ -17,7 +17,7 @@ class PluginInsight implements Plugin<Project> {
       def aop = project.configurations.create("aop")
       project.dependencies.add("aop", "org.aspectj:aspectjweaver:1.8.8")
 
-      project.tasks.create("allPluginsInsight", AllPluginsInsightTask) { AllPluginsInsightTask task ->
+      project.tasks.create("pluginsInsight", PluginInsightTask) { PluginInsightTask task ->
         task.classpath = project.files()
         task.classpath += project.sourceSets.main.output //so that we have user's plugins
         task.classpath += project.configurations.getByName("runtime") //so that we have user's plugins' classpath/dependencies

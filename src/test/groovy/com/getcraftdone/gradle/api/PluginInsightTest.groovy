@@ -13,7 +13,7 @@ class PluginInsightTest extends Specification {
   def "generates plugin docs"() {
     project.plugins.apply("plugin-insight")
     project.plugins.apply("java")
-    def t = project.tasks['allPluginsInsight'] as AllPluginsInsightTask
+    def t = project.tasks['pluginsInsight'] as PluginInsightTask
 
     //so that the java process that has access to code under test
     def cp = System.getProperty("java.class.path")

@@ -16,9 +16,9 @@ import com.getcraftdone.gradle.internal.AllPluginsDocGenerator
 /**
  * Created by sfaber on 3/6/16.
  */
-class AllPluginsInsightTask extends DefaultTask {
+class PluginInsightTask extends DefaultTask {
 
-  private final static Logger LOG = Logging.getLogger(AllPluginsInsightTask)
+  private final static Logger LOG = Logging.getLogger(PluginInsightTask)
 
   @InputDirectory File pluginIdDir
   @OutputDirectory File outputDir
