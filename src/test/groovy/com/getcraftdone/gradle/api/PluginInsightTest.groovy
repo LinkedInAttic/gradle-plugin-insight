@@ -10,18 +10,6 @@ class PluginInsightTest extends Specification {
 
   def project = new ProjectBuilder().build()
 
-  def "creates and configures the task"() {
-    given:
-    project.plugins.apply("plugin-insight")
-    project.plugins.apply("java")
-
-    when:
-    def t = project.tasks.create("t", PluginInsightTask)
-
-    then:
-    t.classpath
-  }
-
   def "generates plugin docs"() {
     project.plugins.apply("plugin-insight")
     project.plugins.apply("java")

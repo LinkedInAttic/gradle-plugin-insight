@@ -13,14 +13,6 @@ class PluginInsight implements Plugin<Project> {
   @Override
   void apply(Project project) {
     project.plugins.withType(JavaPlugin) {
-      project.tasks.withType(PluginInsightTask) { PluginInsightTask task ->
-        task.classpath = project.files()
-        task.classpath += project.sourceSets.main.output //so that we have user's plugins
-        task.classpath += project.configurations.getByName("runtime") //so that we have user's plugins' classpath/dependencies
-        task.classpath += project.buildscript.configurations.getByName("classpath") //so that we have PluginDoc classes
-        println project.sourceSets.main.output.files
-      }
-
       project.repositories.mavenCentral()
       def aop = project.configurations.create("aop")
       project.dependencies.add("aop", "org.aspectj:aspectjweaver:1.8.8")
