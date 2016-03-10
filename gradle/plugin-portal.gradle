@@ -1,0 +1,16 @@
+//For publishing to Gradle Plugin Portal
+apply plugin: "com.gradle.plugin-publish"
+
+pluginBundle {
+    website = 'https://github.com/szczepiq/gradle-plugin-insight'
+    vcsUrl = 'https://github.com/szczepiq/gradle-plugin-insight'
+    description = project.description
+    tags = ['documentation', 'autogeneration', 'markdown']
+
+    plugins {
+        pluginInsight {
+            id = "${project.group}.plugin-insight"
+            displayName = 'Gradle Plugin Insight'
+        }
+    }
+}

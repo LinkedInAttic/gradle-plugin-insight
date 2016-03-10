@@ -1,9 +1,17 @@
+// For gradle plugin portal publication
+buildscript {
+  repositories { maven { url "https://plugins.gradle.org/m2/" } }
+  dependencies { classpath "com.gradle.publish:plugin-publish-plugin:0.9.4" }
+}
+
+description = "Gradle Plugin Insight for automatic generation of plugin documentation"
+group = "org.getcraftdone"
+version = "0.0.1"
+
 apply plugin: 'groovy'
 apply plugin: 'idea'
 apply plugin: 'maven'
-
-group = "org.getcraftdone"
-version = "0.0.1"
+apply from: 'gradle/plugin-portal.gradle'
 
 repositories {
   mavenCentral()
