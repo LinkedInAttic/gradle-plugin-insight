@@ -10,6 +10,7 @@ class PluginDocGenerator {
 
   String textDoc(Project project, String pluginId) {
     def builder = new PluginDocBuilder()
+
     builder.init(project)
     project.plugins.apply(pluginId)
     " --- Documentation for '$pluginId' plugin ---\n\n" + builder.toString()

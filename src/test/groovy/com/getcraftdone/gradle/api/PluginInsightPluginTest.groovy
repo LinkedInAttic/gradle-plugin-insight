@@ -34,7 +34,7 @@ class PluginInsightPluginTest extends Specification {
     //so that there are some plugins we can generate documentation for
     def f = project.file("src/main/resources/META-INF/gradle-plugins/sample-plugin.properties")
     f.parentFile.mkdirs()
-    f.text = "implementation-class=testing.SampleGradlePlugin"
+    f.text = "implementation-class=testing.plugins.SampleGradlePlugin"
 
     when:
     t.generate()
@@ -42,58 +42,11 @@ class PluginInsightPluginTest extends Specification {
     then:
     new File(t.outputDir, "sample-plugin.txt").text == """ --- Documentation for 'sample-plugin' plugin ---
 
-  * Plugin: LifecycleBasePlugin
-    Tasks: none
-    Configurations: none
-
-
-  * Plugin: BasePlugin
+  * Plugin: AnotherPlugin
     Tasks:
-     - assemble - Assembles the outputs of this project.
+     - anotherTask - This is another task
     Configurations:
-     - archives - Configuration for archive artifacts.
-     - default - Configuration for default artifacts.
-
-
-  * Plugin: ReportingBasePlugin
-    Tasks: none
-    Configurations: none
-
-
-  * Plugin: LanguageBasePlugin
-    Tasks: none
-    Configurations: none
-
-
-  * Plugin: BinaryBasePlugin
-    Tasks: none
-    Configurations: none
-
-
-  * Plugin: JavaBasePlugin
-    Tasks:
-     - buildDependents - Assembles and tests this project and all projects that depend on it.
-     - buildNeeded - Assembles and tests this project and all projects it depends on.
-    Configurations: none
-
-
-  * Plugin: JavaPlugin
-    Tasks:
-     - check - Runs all checks.
-     - classes - Assembles main classes.
-     - compileJava - Compiles main Java source.
-     - compileTestJava - Compiles test Java source.
-     - jar - Assembles a jar archive containing the main classes.
-     - javadoc - Generates Javadoc API documentation for the main source code.
-     - processResources - Processes main resources.
-     - processTestResources - Processes test resources.
-     - test - Runs the unit tests.
-     - testClasses - Assembles test classes.
-    Configurations:
-     - compile - Compile classpath for source set 'main'.
-     - runtime - Runtime classpath for source set 'main'.
-     - testCompile - Compile classpath for source set 'test'.
-     - testRuntime - Runtime classpath for source set 'test'.
+     - anotherConfiguration - This is another configuration
 
 
   * Plugin: SampleGradlePlugin
