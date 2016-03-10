@@ -5,7 +5,7 @@ buildscript {
 }
 
 description = "Gradle Plugin Insight for automatic generation of plugin documentation"
-group = "org.getcraftdone"
+group = "gradle.plugin.org.getcraftdone"
 version = "0.1.0"
 
 apply plugin: 'groovy'
@@ -16,6 +16,8 @@ apply from: 'gradle/plugin-portal.gradle'
 repositories {
   mavenCentral()
 }
+
+sourceCompatibility = 1.7
 
 dependencies {
   compile gradleApi()
