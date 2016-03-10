@@ -35,20 +35,18 @@ class PluginDocBuilderTest extends Specification {
         p.afterApplied(p1)
 
         then:
-        p.toString() == """  * Plugin: AnotherPlugin
-    Tasks:
-     - anotherTask - This is another task
-    Configurations:
-     - anotherConfiguration - This is another configuration
+        p.toString() == """* Plugin: AnotherPlugin
+   * Tasks:
+      - anotherTask - This is another task
+   * Configurations:
+      - anotherConfiguration - This is another configuration
 
-
-  * Plugin: SampleGradlePlugin
-    Tasks:
-     - sampleTask - This is sample task
-     - sampleTask2 - This is sample task 2
-    Configurations:
-     - sampleConfiguration - This is sample configuration
-
+* Plugin: SampleGradlePlugin
+   * Tasks:
+      - sampleTask - This is sample task
+      - sampleTask2 - This is sample task 2
+   * Configurations:
+      - sampleConfiguration - This is sample configuration
 
 """
     }

@@ -13,7 +13,7 @@ class PluginDocGenerator {
 
     builder.init(project)
     project.plugins.apply(pluginId)
-    " --- Documentation for '$pluginId' plugin ---\n\n" + builder.toString()
+    "## Documentation for '$pluginId' plugin ##\n\n" + builder.toString()
   }
 
   void textDoc(Project project, String pluginId, File file) {

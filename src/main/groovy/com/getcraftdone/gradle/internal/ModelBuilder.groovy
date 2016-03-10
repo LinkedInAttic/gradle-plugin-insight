@@ -17,7 +17,7 @@ class ModelBuilder {
   public String toString() {
     def out = new StringBuilder()
     snapshots.each {
-      out.append(it).append("\n\n")
+      out.append(it).append("\n")
     }
     out
   }
