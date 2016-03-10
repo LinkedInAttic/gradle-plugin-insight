@@ -8,7 +8,7 @@ import com.getcraftdone.gradle.internal.DefaultProjectProvider
 /**
  * Created by sfaber on 3/6/16.
  */
-class PluginInsightPlugin implements Plugin<Project> {
+class PluginInsight implements Plugin<Project> {
 
   @Override
   void apply(Project project) {
