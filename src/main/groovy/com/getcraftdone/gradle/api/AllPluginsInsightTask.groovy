@@ -1,4 +1,4 @@
-package org.sfaber.gradle.api
+package com.getcraftdone.gradle.api
 
 import org.gradle.api.DefaultTask
 import org.gradle.api.file.FileCollection
@@ -11,7 +11,7 @@ import org.gradle.api.tasks.InputFiles
 import org.gradle.api.tasks.OutputDirectory
 import org.gradle.api.tasks.TaskAction
 import org.gradle.process.JavaExecSpec
-import org.sfaber.gradle.internal.AllPluginsDocGenerator
+import com.getcraftdone.gradle.internal.AllPluginsDocGenerator
 
 /**
  * Created by sfaber on 3/6/16.

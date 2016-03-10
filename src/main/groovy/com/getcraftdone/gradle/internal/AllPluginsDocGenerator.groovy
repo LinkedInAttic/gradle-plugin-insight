@@ -1,6 +1,6 @@
-package org.sfaber.gradle.internal
+package com.getcraftdone.gradle.internal
 
-import org.sfaber.gradle.api.ProjectProvider
+import com.getcraftdone.gradle.api.ProjectProvider
 
 /**
  * Created by sfaber on 3/5/16.

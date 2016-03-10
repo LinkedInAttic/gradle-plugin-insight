@@ -1,8 +1,8 @@
-package org.sfaber.gradle.internal
+package com.getcraftdone.gradle.internal
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.sfaber.gradle.internal.aop.PluginLifecycleAspect
+import com.getcraftdone.gradle.internal.aop.PluginLifecycleAspect
 
 /**
  * Created by sfaber on 3/5/16.

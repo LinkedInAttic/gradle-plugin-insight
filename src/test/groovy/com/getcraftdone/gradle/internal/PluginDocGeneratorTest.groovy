@@ -1,46 +1,26 @@
-package org.sfaber.gradle.api
+package com.getcraftdone.gradle.internal
 
 import org.gradle.testfixtures.ProjectBuilder
+import org.junit.Rule
+import org.junit.rules.TemporaryFolder
 import spock.lang.Specification
 
 /**
  * Created by sfaber on 3/6/16.
  */
-class PluginInsightPluginTest extends Specification {
+class PluginDocGeneratorTest extends Specification {
 
   def project = new ProjectBuilder().build()
+  @Rule TemporaryFolder tmp = new TemporaryFolder()
 
-  def "creates and configures the task"() {
-    given:
-    project.plugins.apply("plugin-insight")
-    project.plugins.apply("java")
-
-    when:
-    def t = project.tasks.create("t", PluginInsightTask)
-
-    then:
-    t.classpath
-  }
-
-  def "generates plugin docs"() {
-    project.plugins.apply("plugin-insight")
-    project.plugins.apply("java")
-    def t = project.tasks['allPluginsInsight'] as AllPluginsInsightTask
-
-    //so that the java process that has access to code under test
-    def cp = System.getProperty("java.class.path")
-    t.classpath += project.files(cp.split(":"))
-
-    //so that there are some plugins we can generate documentation for
-    def f = project.file("src/main/resources/META-INF/gradle-plugins/sample-plugin.properties")
-    f.parentFile.mkdirs()
-    f.text = "implementation-class=testing.SampleGradlePlugin"
+  def "generates doc"() {
+    def f = tmp.newFile()
 
     when:
-    t.generate()
+    new PluginDocGenerator().textDoc(project, "java", f)
 
     then:
-    new File(t.outputDir, "sample-plugin.txt").text == """ --- Documentation for 'sample-plugin' plugin ---
+    f.text == """ --- Documentation for 'java' plugin ---
 
   * Plugin: LifecycleBasePlugin
     Tasks: none
@@ -94,13 +74,6 @@ class PluginInsightPluginTest extends Specification {
      - runtime - Runtime classpath for source set 'main'.
      - testCompile - Compile classpath for source set 'test'.
      - testRuntime - Runtime classpath for source set 'test'.
-
-
-  * Plugin: SampleGradlePlugin
-    Tasks:
-     - sampleTask - This is sample task
-    Configurations:
-     - sampleConfiguration - This is sample configuration
 
 
 """

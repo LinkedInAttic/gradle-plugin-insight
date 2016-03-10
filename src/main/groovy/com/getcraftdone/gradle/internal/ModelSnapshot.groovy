@@ -1,4 +1,4 @@
-package org.sfaber.gradle.internal
+package com.getcraftdone.gradle.internal
 
 import org.gradle.api.Plugin
 import org.gradle.api.Task

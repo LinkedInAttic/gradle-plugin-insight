@@ -1,5 +1,5 @@
 <aspectj>
     <aspects>
-        <aspect name="org.sfaber.gradle.internal.aop.PluginLifecycleAspect"/>
+        <aspect name="com.getcraftdone.gradle.internal.aop.PluginLifecycleAspect"/>
     </aspects>
 </aspectj>

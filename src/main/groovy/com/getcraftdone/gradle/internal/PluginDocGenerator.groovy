@@ -1,4 +1,4 @@
-package org.sfaber.gradle.internal
+package com.getcraftdone.gradle.internal
 
 import org.gradle.api.Project
 import org.gradle.testfixtures.ProjectBuilder

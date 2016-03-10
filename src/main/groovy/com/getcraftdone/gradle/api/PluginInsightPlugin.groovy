@@ -1,9 +1,9 @@
-package org.sfaber.gradle.api
+package com.getcraftdone.gradle.api
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.plugins.JavaPlugin
-import org.sfaber.gradle.internal.DefaultProjectProvider
+import com.getcraftdone.gradle.internal.DefaultProjectProvider
 
 /**
  * Created by sfaber on 3/6/16.

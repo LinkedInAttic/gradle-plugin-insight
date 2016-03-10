@@ -1,4 +1,4 @@
-package org.sfaber.gradle.api;
+package com.getcraftdone.gradle.api;
 
 import org.gradle.api.Project;
 

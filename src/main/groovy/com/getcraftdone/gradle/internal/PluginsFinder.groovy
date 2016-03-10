@@ -1,4 +1,4 @@
-package org.sfaber.gradle.internal
+package com.getcraftdone.gradle.internal
 
 /**
  * Created by sfaber on 3/6/16.
