@@ -1,4 +1,4 @@
-package com.getcraftdone.gradle.internal.aop;
+package org.getcraftdone.gradle.internal.aop;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;

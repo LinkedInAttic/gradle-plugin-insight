@@ -1,4 +1,4 @@
-package com.getcraftdone.gradle.api
+package org.getcraftdone.gradle.api
 
 import org.gradle.testfixtures.ProjectBuilder
 import spock.lang.Specification
@@ -11,7 +11,7 @@ class PluginInsightTest extends Specification {
   def project = new ProjectBuilder().build()
 
   def "generates plugin docs"() {
-    project.plugins.apply("com.getcraftdone.plugin-insight")
+    project.plugins.apply("org.getcraftdone.plugin-insight")
     project.plugins.apply("java")
     def t = project.tasks['pluginsInsight'] as PluginInsightTask
 

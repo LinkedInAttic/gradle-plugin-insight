@@ -1,8 +1,8 @@
-package com.getcraftdone.gradle.internal
+package org.getcraftdone.gradle.internal
 
 import org.gradle.api.Project
 import org.gradle.testfixtures.ProjectBuilder
-import com.getcraftdone.gradle.api.ProjectProvider
+import org.getcraftdone.gradle.api.ProjectProvider
 
 /**
  * Created by sfaber on 3/8/16.

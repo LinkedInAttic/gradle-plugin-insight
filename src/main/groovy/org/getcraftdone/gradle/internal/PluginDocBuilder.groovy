@@ -1,8 +1,8 @@
-package com.getcraftdone.gradle.internal
+package org.getcraftdone.gradle.internal
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import com.getcraftdone.gradle.internal.aop.PluginLifecycleAspect
+import org.getcraftdone.gradle.internal.aop.PluginLifecycleAspect
 
 /**
  * Created by sfaber on 3/5/16.

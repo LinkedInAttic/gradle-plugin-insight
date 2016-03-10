@@ -1,4 +1,4 @@
-package com.getcraftdone.gradle.internal
+package org.getcraftdone.gradle.internal
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project

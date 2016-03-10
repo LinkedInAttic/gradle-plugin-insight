@@ -2,7 +2,7 @@ apply plugin: 'groovy'
 apply plugin: 'idea'
 apply plugin: 'maven'
 
-group = "org.sfaber.gradle"
+group = "org.getcraftdone"
 version = "0.0.1"
 
 repositories {

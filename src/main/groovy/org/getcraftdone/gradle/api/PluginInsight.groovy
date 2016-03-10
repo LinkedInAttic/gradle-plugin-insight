@@ -1,9 +1,9 @@
-package com.getcraftdone.gradle.api
+package org.getcraftdone.gradle.api
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.plugins.JavaPlugin
-import com.getcraftdone.gradle.internal.DefaultProjectProvider
+import org.getcraftdone.gradle.internal.DefaultProjectProvider
 
 /**
  * Created by sfaber on 3/6/16.

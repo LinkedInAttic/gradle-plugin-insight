@@ -1,6 +1,6 @@
-package com.getcraftdone.gradle.internal
+package org.getcraftdone.gradle.internal
 
-import com.getcraftdone.gradle.api.ProjectProvider
+import org.getcraftdone.gradle.api.ProjectProvider
 
 /**
  * Created by sfaber on 3/5/16.

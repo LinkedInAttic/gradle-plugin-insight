@@ -1,4 +1,4 @@
-package com.getcraftdone.gradle.internal
+package org.getcraftdone.gradle.internal
 
 import org.gradle.testfixtures.ProjectBuilder
 import spock.lang.Specification

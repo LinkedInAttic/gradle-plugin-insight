@@ -1,4 +1,4 @@
-package com.getcraftdone.gradle.api;
+package org.getcraftdone.gradle.api;
 
 import org.gradle.api.Project;
 
