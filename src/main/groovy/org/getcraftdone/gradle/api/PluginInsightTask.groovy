@@ -14,16 +14,39 @@ import org.gradle.process.JavaExecSpec
 import org.getcraftdone.gradle.internal.AllPluginsDocGenerator
 
 /**
- * Created by sfaber on 3/6/16.
+ * Generates documentation about all plugins found in provided directory.
  */
 class PluginInsightTask extends DefaultTask {
 
   private final static Logger LOG = Logging.getLogger(PluginInsightTask)
 
+  /**
+   * Location of directory that contains plugin identifiers e.g. the dir with "<plugin-id>.properties" files
+   */
   @InputDirectory File pluginIdDir
+
+  /**
+   * Where the documentation is generated
+   */
   @OutputDirectory File outputDir
+
+  /**
+   * To avoid classpath/classloader issues, we will generate documentation in a separate java process.
+   * The classpath needs:
+   *   a) plugin classes (main source set output), so that they can be applied to test project
+   *   b) dependencies of plugin classes (main source set runtime classpath), so that plugins can be applied
+   *   c) 'gradle-plugin-insight' classes along with their dependencies
+   */
   @InputFiles FileCollection classpath
+
+  /**
+   * Fully qualified name of the project provider implementation class
+   */
   @Input String projectProviderImpl
+
+  /**
+   * The aspectj agent jar, so that we can weave in beforeApplied/afterApplied listeners
+   */
   @InputFile File aspectjAgent
 
   @TaskAction void generate() {
