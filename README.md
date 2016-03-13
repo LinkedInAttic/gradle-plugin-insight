@@ -31,6 +31,8 @@ This can be fixed but for now, we don't need it that much.
 
 # Example report
 
+Example report generated for one of our custom plugins:
+
 ## Documentation for 'pemberly-app' plugin ##
 
 * Plugin: LifecycleBasePlugin
