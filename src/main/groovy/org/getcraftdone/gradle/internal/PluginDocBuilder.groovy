@@ -1,5 +1,6 @@
 package org.getcraftdone.gradle.internal
 
+import org.getcraftdone.gradle.api.ModelSnapshot
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.getcraftdone.gradle.internal.aop.PluginLifecycleAspect
@@ -9,7 +10,6 @@ import org.getcraftdone.gradle.internal.aop.PluginLifecycleAspect
  */
 class PluginDocBuilder implements PluginLifecycleAspect.Listener {
 
-  ModelBuilder builder = new ModelBuilder()
   Project project
 
   void init(Project project) {
@@ -18,18 +18,22 @@ class PluginDocBuilder implements PluginLifecycleAspect.Listener {
   }
 
   public String toString() {
-    builder.toString()
+    result*.describe().join("\n")
   }
 
-  LinkedList<ModelSnapshot> snapshots = new LinkedList<>()
+  LinkedList<ModelSnapshot> queue = new LinkedList<>()
+  LinkedList<ModelSnapshot> result = new LinkedList<>()
 
   void beforeApplied(Plugin<Project> plugin) {
-    snapshots << new SnapshotTaker().snapshot(project, plugin)
+    queue << new DefaultModelSnapshot().take(plugin, project)
   }
 
   void afterApplied(Plugin<Project> plugin) {
-    def s = new SnapshotTaker().snapshot(project, plugin)
-    def delta = s.minus(snapshots.removeLast())
-    builder.add(delta)
+    def s = new DefaultModelSnapshot().take(plugin, project)
+    def delta = s.minus(queue.removeLast())
+    result.each {
+      delta = delta.minus(it)
+    }
+    result.addFirst(delta)
   }
 }

@@ -21,10 +21,4 @@ class PluginDocGenerator {
     file.parentFile.mkdirs()
     file << text
   }
-
-  public static void main(String[] args) {
-    assert args.length == 2 : "Expected 2 arguments: plugin id and report file location"
-    def p = new ProjectBuilder().build()
-    new PluginDocGenerator().textDoc(p, args[0], new File(args[1]))
-  }
 }

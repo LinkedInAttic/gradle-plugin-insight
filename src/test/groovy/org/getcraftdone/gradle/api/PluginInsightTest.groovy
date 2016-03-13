@@ -30,18 +30,17 @@ class PluginInsightTest extends Specification {
     then:
     new File(t.outputDir, "sample-plugin.txt").text == """## Documentation for 'sample-plugin' plugin ##
 
-* Plugin: AnotherPlugin
-   * Tasks:
-      - anotherTask - This is another task
-   * Configurations:
-      - anotherConfiguration - This is another configuration
-
 * Plugin: SampleGradlePlugin
    * Tasks:
       - sampleTask - This is sample task
    * Configurations:
       - sampleConfiguration - This is sample configuration
 
+* Plugin: AnotherPlugin
+   * Tasks:
+      - anotherTask - This is another task
+   * Configurations:
+      - anotherConfiguration - This is another configuration
 """
   }
 }
