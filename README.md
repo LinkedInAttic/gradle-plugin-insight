@@ -10,11 +10,13 @@ Prototype, actively developed
 
 In order to generate documentation for all custom Gradle plugins developed in given project:
 
-apply plugin: 'plugin-insight'
+    apply plugin: 'plugin-insight'
 
 Then execute:
 
-./gradlew pluginInsight
+    ./gradlew pluginInsight
+
+Then inspect the contents of "build/doc/plugins" (configurable at task level)
 
 ## Limitations
 
