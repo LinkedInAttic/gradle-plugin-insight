@@ -1,6 +1,7 @@
 package org.getcraftdone.gradle.internal
 
 import org.getcraftdone.gradle.api.ModelSnapshot
+import org.getcraftdone.gradle.internal.snapshot.DefaultModelSnapshot
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.getcraftdone.gradle.internal.aop.PluginLifecycleAspect
@@ -8,7 +9,7 @@ import org.getcraftdone.gradle.internal.aop.PluginLifecycleAspect
 /**
  * Created by sfaber on 3/5/16.
  */
-class PluginDocBuilder implements PluginLifecycleAspect.Listener {
+class InsightListener implements PluginLifecycleAspect.Listener {
 
   Project project
 

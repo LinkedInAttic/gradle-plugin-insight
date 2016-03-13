@@ -8,7 +8,7 @@ import spock.lang.Specification
 /**
  * Created by sfaber on 3/6/16.
  */
-class PluginDocGeneratorTest extends Specification {
+class InsightGeneratorTest extends Specification {
 
   def project = new ProjectBuilder().build()
   @Rule TemporaryFolder tmp = new TemporaryFolder()
@@ -17,7 +17,7 @@ class PluginDocGeneratorTest extends Specification {
     def f = tmp.newFile()
 
     when:
-    new PluginDocGenerator().textDoc(project, "java", f)
+    new InsightGenerator().textDoc(project, "java", f)
 
     then: //sanity test only
     f.text

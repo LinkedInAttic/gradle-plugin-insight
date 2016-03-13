@@ -1,4 +1,4 @@
-package org.getcraftdone.gradle.internal
+package org.getcraftdone.gradle.internal.snapshot
 
 import org.getcraftdone.gradle.api.ModelSnapshot
 import org.gradle.api.Plugin

@@ -5,10 +5,10 @@ import org.gradle.api.Project
 /**
  * Created by sfaber on 3/5/16.
  */
-class PluginDocGenerator {
+class InsightGenerator {
 
   String textDoc(Project project, String pluginId) {
-    def builder = new PluginDocBuilder()
+    def builder = new InsightListener()
 
     builder.init(project)
     project.plugins.apply(pluginId)

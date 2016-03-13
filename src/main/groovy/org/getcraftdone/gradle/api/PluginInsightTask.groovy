@@ -11,7 +11,7 @@ import org.gradle.api.tasks.InputFiles
 import org.gradle.api.tasks.OutputDirectory
 import org.gradle.api.tasks.TaskAction
 import org.gradle.process.JavaExecSpec
-import org.getcraftdone.gradle.internal.PluginInsightGenerator
+import org.getcraftdone.gradle.internal.InsightGeneratorMain
 
 /**
  * Generates documentation about all plugins found in provided directory.
@@ -58,7 +58,7 @@ class PluginInsightTask extends DefaultTask {
 
     project.javaexec { JavaExecSpec spec ->
       spec.classpath = cp
-      spec.main = PluginInsightGenerator.class.name
+      spec.main = InsightGeneratorMain.class.name
       spec.args projectProviderImpl, pluginIdDir.absolutePath, outputDir.absolutePath
       spec.jvmArgs "-javaagent:$aspectjAgent.absolutePath"
     }

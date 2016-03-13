@@ -4,7 +4,7 @@ import org.getcraftdone.gradle.api.PluginInsightTask
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.plugins.JavaPlugin
-import org.getcraftdone.gradle.internal.DefaultProjectProvider
+import org.getcraftdone.gradle.internal.project.DefaultProjectProvider
 
 /**
  * Created by sfaber on 3/6/16.

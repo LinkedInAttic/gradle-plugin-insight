@@ -1,4 +1,4 @@
-package org.getcraftdone.gradle.internal
+package org.getcraftdone.gradle.internal.plugin
 
 /**
  * Created by sfaber on 3/6/16.

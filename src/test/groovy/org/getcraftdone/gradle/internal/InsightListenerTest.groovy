@@ -8,7 +8,7 @@ import spock.lang.Specification
 /**
  * Created by sfaber on 3/9/16.
  */
-class PluginDocBuilderTest extends Specification {
+class InsightListenerTest extends Specification {
 
     def project = new ProjectBuilder().build()
 
@@ -16,7 +16,7 @@ class PluginDocBuilderTest extends Specification {
     class DummyOtherPlugin implements Plugin<Project> { void apply(Project project) {} }
 
     def "builds doc"() {
-        def p = new PluginDocBuilder()
+        def p = new InsightListener()
         p.init(project)
 
         when:

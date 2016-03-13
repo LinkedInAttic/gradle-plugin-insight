@@ -1,11 +1,12 @@
 package org.getcraftdone.gradle.internal
 
 import org.getcraftdone.gradle.api.ProjectProvider
+import org.getcraftdone.gradle.internal.plugin.PluginsFinder
 
 /**
  * Created by sfaber on 3/5/16.
  */
-class PluginInsightGenerator {
+class InsightGeneratorMain {
 
   public static void main(String[] args) {
     assert args.length == 3 : "Expected 2 arguments: \n" +
@@ -23,7 +24,7 @@ class PluginInsightGenerator {
       def output = new File(outputDir, "${it}.txt")
       println "Generating documentation for plugin '$it' to file://$output.absolutePath"
       def p = providerImpl.buildProject()
-      new PluginDocGenerator().textDoc(p, it, output)
+      new InsightGenerator().textDoc(p, it, output)
     }
   }
 }
