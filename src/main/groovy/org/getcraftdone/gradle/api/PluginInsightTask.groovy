@@ -15,6 +15,7 @@ import org.getcraftdone.gradle.internal.InsightGeneratorMain
 
 /**
  * Generates documentation about all plugins found in provided directory.
+ * Looks for <plugin-id>.properties files and generates documentation based on each plugin found.
  */
 class PluginInsightTask extends DefaultTask {
 
