@@ -1,6 +1,7 @@
 package org.getcraftdone.gradle.api
 
 import org.gradle.api.DefaultTask
+import org.gradle.api.GradleException
 import org.gradle.api.file.FileCollection
 import org.gradle.api.logging.Logger
 import org.gradle.api.logging.Logging
@@ -57,11 +58,22 @@ class PluginInsightTask extends DefaultTask {
 
     assert pluginIdDir.isDirectory()
 
-    project.javaexec { JavaExecSpec spec ->
+    def outputLog = project.file("$project.buildDir/logs/plugin-insight-java.log")
+    LOG.info("Separate java process generates plugin insight docs. Standard output is written to file://{}", outputLog)
+
+    def result = project.javaexec { JavaExecSpec spec ->
       spec.classpath = cp
       spec.main = InsightGeneratorMain.class.name
       spec.args projectProviderImpl, pluginIdDir.absolutePath, outputDir.absolutePath
       spec.jvmArgs "-javaagent:$aspectjAgent.absolutePath"
+
+      spec.standardOutput = new FileOutputStream(outputLog)
+      spec.ignoreExitValue = true
+    }
+
+    if (result.exitValue != 0) {
+      throw new GradleException("Generation of plugin documentation failed (exit value: $result.exitValue)." +
+              "\nStandard output from the java process was written to file://$outputLog")
     }
   }
 }
