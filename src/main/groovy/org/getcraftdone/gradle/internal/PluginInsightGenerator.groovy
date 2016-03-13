@@ -5,7 +5,7 @@ import org.getcraftdone.gradle.api.ProjectProvider
 /**
  * Created by sfaber on 3/5/16.
  */
-class AllPluginsDocGenerator {
+class PluginInsightGenerator {
 
   public static void main(String[] args) {
     assert args.length == 3 : "Expected 2 arguments: \n" +

@@ -12,6 +12,9 @@ import org.gradle.api.Project;
 @Aspect
 public class PluginLifecycleAspect {
 
+    //Hacky. We don't control creation of the aspect to be able inject the listener differently.
+    //Given that we own the java process that generates the documentation, it's safe :)
+    //Dirty, I need a shower to feel better.
     public static Listener LISTENER;
 
     @Around("execution (* org.gradle.api.Plugin.apply*(..))")

@@ -1,7 +1,6 @@
 package org.getcraftdone.gradle.internal
 
 import org.gradle.api.Project
-import org.gradle.testfixtures.ProjectBuilder
 
 /**
  * Created by sfaber on 3/5/16.
