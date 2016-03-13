@@ -26,6 +26,9 @@ This can be fixed but for now, we don't need it that much.
 ## Future ides an plans
 
  - we have tons of ideas but let's see if what we have is useful first
+ - html report?
+ - generate at runtime for any task?
+ - task for generation for given task?
 
 ----
 
