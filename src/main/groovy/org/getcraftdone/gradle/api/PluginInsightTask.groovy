@@ -47,9 +47,9 @@ class PluginInsightTask extends DefaultTask {
   @Input String projectProviderImpl
 
   /**
-   * The aspectj agent jar, so that we can weave in beforeApplied/afterApplied listeners
+   * Must contain only single file, the aspectj agent jar, so that we can weave in before/after plugin applied listeners
    */
-  @InputFile File aspectjAgent
+  @InputFiles FileCollection aspectjAgent
 
   @TaskAction void generate() {
     def cp = classpath
@@ -65,7 +65,7 @@ class PluginInsightTask extends DefaultTask {
       spec.classpath = cp
       spec.main = InsightGeneratorMain.class.name
       spec.args projectProviderImpl, pluginIdDir.absolutePath, outputDir.absolutePath
-      spec.jvmArgs "-javaagent:$aspectjAgent.absolutePath"
+      spec.jvmArgs "-javaagent:$aspectjAgent.singleFile.absolutePath"
 
       spec.standardOutput = new FileOutputStream(outputLog)
       spec.ignoreExitValue = true

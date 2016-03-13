@@ -20,6 +20,8 @@ Then inspect the contents of "build/doc/plugins" (configurable at task level)
 
 ## Limitations
 
+ - "org.aspectj:aspectjweaver:1.8.8" dependency must be resolvable in the project.
+ For example, this can be achieved by adding 'mavenCentral' repository to current project.
  - Does not document the model changes applied during 'beforeEvaluate', 'afterEvaluate', etc.
 This can be fixed but for now, we don't need it that much.
  - Assumes that plugin ids can be found in 'src/main/resources/META-INF/gradle-plugins' (configurable at the task level)

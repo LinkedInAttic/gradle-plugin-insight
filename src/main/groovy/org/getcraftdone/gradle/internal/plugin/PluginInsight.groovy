@@ -14,9 +14,12 @@ class PluginInsight implements Plugin<Project> {
   @Override
   void apply(Project project) {
     project.plugins.withType(JavaPlugin) {
-      project.repositories.mavenCentral()
-      def aop = project.configurations.create("aop")
-      project.dependencies.add("aop", "org.aspectj:aspectjweaver:1.8.8")
+      def aop = project.configurations.create("plugin-insight-aop")
+      aop.description = "Contains exactly one dependency, the aspectj weaver jar" +
+              "(needed for weaving in hooks to Gradle plugin lifecycle)"
+      aop.visible = false
+
+      project.dependencies.add("plugin-insight-aop", "org.aspectj:aspectjweaver:1.8.8")
 
       project.tasks.create("pluginsInsight", PluginInsightTask) { PluginInsightTask task ->
         task.group = "Documentation"
@@ -30,7 +33,7 @@ class PluginInsight implements Plugin<Project> {
         task.pluginIdDir = project.file("src/main/resources/META-INF/gradle-plugins")
         task.outputDir = project.file("$project.buildDir/doc/plugins")
         task.projectProviderImpl = DefaultProjectProvider.name
-        task.aspectjAgent = aop.singleFile
+        task.aspectjAgent = aop
       }
     }
   }
