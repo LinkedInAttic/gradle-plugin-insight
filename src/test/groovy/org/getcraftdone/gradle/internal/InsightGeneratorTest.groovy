@@ -13,13 +13,14 @@ class InsightGeneratorTest extends Specification {
   def project = new ProjectBuilder().build()
   @Rule TemporaryFolder tmp = new TemporaryFolder()
 
-  def "generates doc for java plugin"() {
+  def "doc generation sanity test"() {
     def f = tmp.newFile()
 
     when:
     new InsightGenerator().textDoc(project, "java", f)
 
-    then: //sanity test only
-    f.text
+    then:
+    //sanity test only, we don't have aop agent to trigger the events needed to track changes to the model
+    f.text == "## Documentation for 'java' plugin ##\n\n"
   }
 }

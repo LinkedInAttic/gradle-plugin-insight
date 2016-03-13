@@ -8,11 +8,10 @@ import org.gradle.api.Project
 class InsightGenerator {
 
   String textDoc(Project project, String pluginId) {
-    def builder = new InsightListener()
-
-    builder.init(project)
+    def listener = new InsightListener()
+    listener.init(project)
     project.plugins.apply(pluginId)
-    "## Documentation for '$pluginId' plugin ##\n\n" + builder.toString()
+    "## Documentation for '$pluginId' plugin ##\n\n" + listener.toString()
   }
 
   void textDoc(Project project, String pluginId, File file) {
