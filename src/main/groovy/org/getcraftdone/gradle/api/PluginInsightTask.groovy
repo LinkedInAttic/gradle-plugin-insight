@@ -59,6 +59,7 @@ class PluginInsightTask extends DefaultTask {
     assert pluginIdDir.isDirectory()
 
     def outputLog = project.file("$project.buildDir/logs/plugin-insight-java.log")
+    outputLog.parentFile.mkdirs()
     LOG.info("Separate java process generates plugin insight docs. Standard output is written to file://{}", outputLog)
 
     def result = project.javaexec { JavaExecSpec spec ->

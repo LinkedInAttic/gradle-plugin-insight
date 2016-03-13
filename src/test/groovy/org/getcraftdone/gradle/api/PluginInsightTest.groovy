@@ -13,6 +13,7 @@ class PluginInsightTest extends Specification {
   def "generates plugin docs"() {
     project.plugins.apply("org.getcraftdone.plugin-insight")
     project.plugins.apply("java")
+    project.repositories.mavenCentral()
     def t = project.tasks['pluginsInsight'] as PluginInsightTask
 
     //so that the java process that has access to code under test
