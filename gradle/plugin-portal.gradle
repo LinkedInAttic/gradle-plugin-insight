@@ -9,7 +9,7 @@ pluginBundle {
 
     plugins {
         pluginInsight {
-            id = "org.getcraftdone.plugin-insight"
+            id = "${project.group}.plugin-insight"
             displayName = 'Gradle Plugin Insight'
         }
     }
