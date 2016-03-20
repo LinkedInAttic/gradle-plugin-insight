@@ -21,6 +21,6 @@ class InsightGeneratorTest extends Specification {
 
     then:
     //sanity test only, we don't have aop agent to trigger the events needed to track changes to the model
-    f.text == "## Documentation for 'java' plugin ##\n\n"
+    f.text == "## Plugin 'java' applies: ##\n\n"
   }
 }

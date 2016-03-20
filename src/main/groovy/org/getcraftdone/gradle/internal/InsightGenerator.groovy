@@ -11,7 +11,7 @@ class InsightGenerator {
     def listener = new InsightListener()
     listener.init(project)
     project.plugins.apply(pluginId)
-    "## Documentation for '$pluginId' plugin ##\n\n" + listener.toString()
+    "## Plugin '$pluginId' applies: ##\n\n" + listener.toString()
   }
 
   void textDoc(Project project, String pluginId, File file) {

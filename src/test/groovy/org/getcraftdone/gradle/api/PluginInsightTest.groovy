@@ -36,7 +36,7 @@ class PluginInsightTest extends Specification {
     t.generate()
 
     then:
-    new File(t.outputDir, "sample-plugin.md").text == """## Documentation for 'sample-plugin' plugin ##
+    new File(t.outputDir, "sample-plugin.md").text == """## Plugin 'sample-plugin' applies: ##
 
 * Plugin: SampleGradlePlugin
     * Tasks:
@@ -64,6 +64,6 @@ class PluginInsightTest extends Specification {
 
     then:
     println h.outputDir
-    new File(h.outputDir, "sample-plugin.html").text.contains "Documentation for 'sample-plugin' plugin"
+    new File(h.outputDir, "sample-plugin.html").text.contains "'sample-plugin'"
   }
 }
