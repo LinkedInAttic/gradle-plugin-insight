@@ -34,11 +34,11 @@ class DefaultModelSnapshot implements ModelSnapshot {
         def sb = new StringBuilder()
         sb.append("* Plugin: " + plugin.getClass().getSimpleName() + "\n")
         if (tasks.isEmpty()) {
-            sb.append("   * Tasks: none\n")
+            sb.append("    * Tasks: none\n")
         } else {
-            sb.append("   * Tasks:\n")
+            sb.append("    * Tasks:\n")
             tasks.each {
-                sb.append("      - $it.name")
+                sb.append("        - $it.name")
                 if (it.description) {
                     sb.append(" - $it.description\n")
                 } else {
@@ -47,11 +47,11 @@ class DefaultModelSnapshot implements ModelSnapshot {
             }
         }
         if (configurations.isEmpty()) {
-            sb.append("   * Configurations: none\n")
+            sb.append("    * Configurations: none\n")
         } else {
-            sb.append("   * Configurations:\n")
+            sb.append("    * Configurations:\n")
             configurations.each {
-                sb.append("      - $it.name")
+                sb.append("        - $it.name")
                 if (it.description) {
                     sb.append(" - $it.description\n")
                 } else {

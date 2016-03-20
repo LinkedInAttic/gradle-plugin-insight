@@ -39,17 +39,17 @@ class InsightListenerTest extends Specification {
 
         then:
         p.toString() == """* Plugin: DummySamplePlugin
-   * Tasks:
-      - sampleTask - This is sample task
-      - sampleTask2 - This is sample task 2
-   * Configurations:
-      - sampleConfiguration - This is sample configuration
+    * Tasks:
+        - sampleTask - This is sample task
+        - sampleTask2 - This is sample task 2
+    * Configurations:
+        - sampleConfiguration - This is sample configuration
 
 * Plugin: DummyOtherPlugin
-   * Tasks:
-      - anotherTask - This is another task
-   * Configurations:
-      - anotherConfiguration - This is another configuration
+    * Tasks:
+        - anotherTask - This is another task
+    * Configurations:
+        - anotherConfiguration - This is another configuration
 """
     }
 }

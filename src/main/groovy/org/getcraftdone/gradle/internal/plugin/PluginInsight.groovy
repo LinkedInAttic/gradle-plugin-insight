@@ -5,6 +5,7 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.plugins.JavaPlugin
 import org.getcraftdone.gradle.internal.project.DefaultProjectProvider
+import org.kordamp.gradle.markdown.MarkdownToHtmlTask
 
 /**
  * Created by sfaber on 3/6/16.
@@ -21,6 +22,9 @@ class PluginInsight implements Plugin<Project> {
 
       project.dependencies.add("plugin-insight-aop", "org.aspectj:aspectjweaver:1.8.8")
 
+      def markdownOutputDir = project.file("$project.buildDir/doc/plugins/markdown")
+      def htmlOutputDir = project.file("$project.buildDir/doc/plugins/html")
+
       project.tasks.create("pluginsInsight", PluginInsightTask) { PluginInsightTask task ->
         task.group = "Documentation"
         task.description = "Generates documentation for all custom Gradle plugins developed in this project."
@@ -31,9 +35,16 @@ class PluginInsight implements Plugin<Project> {
         task.classpath += project.buildscript.configurations.getByName("classpath") //so that we have PluginDoc classes
 
         task.pluginIdDir = project.file("src/main/resources/META-INF/gradle-plugins")
-        task.outputDir = project.file("$project.buildDir/doc/plugins")
+        task.outputDir = markdownOutputDir
         task.projectProviderImpl = DefaultProjectProvider.name
         task.aspectjAgent = aop
+      }
+
+      project.tasks.create("pluginInsightHtml", MarkdownToHtmlTask) { MarkdownToHtmlTask task ->
+        task.group = "Documentation"
+
+        task.sourceDir = markdownOutputDir
+        task.outputDir = htmlOutputDir
       }
     }
   }

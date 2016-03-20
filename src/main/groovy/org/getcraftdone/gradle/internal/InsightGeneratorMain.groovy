@@ -21,7 +21,7 @@ class InsightGeneratorMain {
 
     def plugins = new PluginsFinder().getAllPlugins(pluginsIdDir)
     plugins.each {
-      def output = new File(outputDir, "${it}.txt")
+      def output = new File(outputDir, "${it}.md")
       println "Generating documentation for plugin '$it' to file://$output.absolutePath"
       def p = providerImpl.buildProject()
       new InsightGenerator().textDoc(p, it, output)

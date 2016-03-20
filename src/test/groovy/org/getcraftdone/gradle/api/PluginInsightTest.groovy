@@ -1,6 +1,7 @@
 package org.getcraftdone.gradle.api
 
 import org.gradle.testfixtures.ProjectBuilder
+import org.kordamp.gradle.markdown.MarkdownToHtmlTask
 import spock.lang.Specification
 
 /**
@@ -10,7 +11,7 @@ class PluginInsightTest extends Specification {
 
   def project = new ProjectBuilder().build()
 
-  def "generates plugin docs"() {
+  private void prepare() {
     project.plugins.apply("org.getcraftdone.plugin-insight")
     project.plugins.apply("java")
     project.repositories.mavenCentral()
@@ -24,24 +25,45 @@ class PluginInsightTest extends Specification {
     def f = project.file("src/main/resources/META-INF/gradle-plugins/sample-plugin.properties")
     f.parentFile.mkdirs()
     f.text = "implementation-class=testing.plugins.SampleGradlePlugin"
+  }
+
+  def "generates plugin docs"() {
+    given:
+    prepare()
+    def t = project.tasks['pluginsInsight'] as PluginInsightTask
 
     when:
     t.generate()
 
     then:
-    new File(t.outputDir, "sample-plugin.txt").text == """## Documentation for 'sample-plugin' plugin ##
+    new File(t.outputDir, "sample-plugin.md").text == """## Documentation for 'sample-plugin' plugin ##
 
 * Plugin: SampleGradlePlugin
-   * Tasks:
-      - sampleTask - This is sample task
-   * Configurations:
-      - sampleConfiguration - This is sample configuration
+    * Tasks:
+        - sampleTask - This is sample task
+    * Configurations:
+        - sampleConfiguration - This is sample configuration
 
 * Plugin: AnotherPlugin
-   * Tasks:
-      - anotherTask - This is another task
-   * Configurations:
-      - anotherConfiguration - This is another configuration
+    * Tasks:
+        - anotherTask - This is another task
+    * Configurations:
+        - anotherConfiguration - This is another configuration
 """
+  }
+
+  def "generates plugin html docs"() {
+    given:
+    prepare()
+    def t = project.tasks['pluginsInsight'] as PluginInsightTask
+    def h = project.tasks['pluginInsightHtml'] as MarkdownToHtmlTask
+
+    when:
+    t.generate()
+    h.runTask()
+
+    then:
+    println h.outputDir
+    new File(h.outputDir, "sample-plugin.html").text.contains "Documentation for 'sample-plugin' plugin"
   }
 }
