@@ -42,7 +42,7 @@ class PluginInsightTask extends DefaultTask {
   @InputFiles FileCollection classpath
 
   /**
-   * Fully qualified name of the project provider implementation class
+   * Fully qualified name of the project provider implementation class ({@link ProjectProvider}).
    */
   @Input String projectProviderImpl
 

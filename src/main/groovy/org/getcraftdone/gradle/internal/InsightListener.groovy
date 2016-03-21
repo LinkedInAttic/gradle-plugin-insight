@@ -1,6 +1,6 @@
 package org.getcraftdone.gradle.internal
 
-import org.getcraftdone.gradle.api.ModelSnapshot
+import org.getcraftdone.gradle.internal.snapshot.ModelSnapshot
 import org.getcraftdone.gradle.internal.snapshot.DefaultModelSnapshot
 import org.gradle.api.Plugin
 import org.gradle.api.Project

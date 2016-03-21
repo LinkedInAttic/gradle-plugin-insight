@@ -1,6 +1,5 @@
 package org.getcraftdone.gradle.internal.snapshot
 
-import org.getcraftdone.gradle.api.ModelSnapshot
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.Task
