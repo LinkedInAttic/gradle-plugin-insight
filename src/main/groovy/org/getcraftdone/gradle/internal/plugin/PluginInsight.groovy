@@ -28,7 +28,7 @@ class PluginInsight implements Plugin<Project> {
 
       project.tasks.create("pluginInsight", PluginInsightTask) { PluginInsightTask task ->
         task.group = "Documentation"
-        task.description = "Generates documentation for all custom Gradle plugins developed in this project."
+        task.description = "Generates markdown documentation for all custom Gradle plugins developed in this project."
 
         task.classpath = project.files()
         task.classpath += project.sourceSets.main.output //so that we have user's plugins
@@ -43,6 +43,9 @@ class PluginInsight implements Plugin<Project> {
 
       project.tasks.create("pluginInsightHtml", MarkdownToHtmlTask) { MarkdownToHtmlTask task ->
         task.group = "Documentation"
+        task.description = "Generates html documentation for all custom Gradle plugins developed in this project."
+
+        task.dependsOn "pluginInsight"
 
         task.sourceDir = markdownOutputDir
         task.outputDir = htmlOutputDir
