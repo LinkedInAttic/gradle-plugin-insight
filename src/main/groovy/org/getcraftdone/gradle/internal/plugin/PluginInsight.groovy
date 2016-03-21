@@ -1,6 +1,7 @@
 package org.getcraftdone.gradle.internal.plugin
 
 import org.getcraftdone.gradle.api.PluginInsightTask
+import org.getcraftdone.gradle.internal.GenerateIndexHtml
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.plugins.JavaPlugin
@@ -45,6 +46,8 @@ class PluginInsight implements Plugin<Project> {
 
         task.sourceDir = markdownOutputDir
         task.outputDir = htmlOutputDir
+
+        task.doLast(new GenerateIndexHtml(htmlOutputDir, project.name))
       }
     }
   }

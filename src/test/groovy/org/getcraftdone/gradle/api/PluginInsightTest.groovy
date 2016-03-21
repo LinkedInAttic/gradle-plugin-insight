@@ -60,10 +60,11 @@ class PluginInsightTest extends Specification {
 
     when:
     t.generate()
-    h.runTask()
+    h.execute()
 
     then:
     println h.outputDir
     new File(h.outputDir, "sample-plugin.html").text.contains "'sample-plugin'"
+    new File(h.outputDir, "index.html").text.contains "sample-plugin"
   }
 }
