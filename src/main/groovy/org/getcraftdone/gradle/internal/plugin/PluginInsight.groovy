@@ -26,7 +26,7 @@ class PluginInsight implements Plugin<Project> {
       def markdownOutputDir = project.file("$project.buildDir/doc/plugins/markdown")
       def htmlOutputDir = project.file("$project.buildDir/doc/plugins/html")
 
-      project.tasks.create("pluginsInsight", PluginInsightTask) { PluginInsightTask task ->
+      project.tasks.create("pluginInsight", PluginInsightTask) { PluginInsightTask task ->
         task.group = "Documentation"
         task.description = "Generates documentation for all custom Gradle plugins developed in this project."
 

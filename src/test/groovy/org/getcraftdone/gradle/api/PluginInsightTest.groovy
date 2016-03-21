@@ -15,7 +15,7 @@ class PluginInsightTest extends Specification {
     project.plugins.apply("org.getcraftdone.plugin-insight")
     project.plugins.apply("java")
     project.repositories.mavenCentral()
-    def t = project.tasks['pluginsInsight'] as PluginInsightTask
+    def t = project.tasks['pluginInsight'] as PluginInsightTask
 
     //so that the java process that has access to code under test
     def cp = System.getProperty("java.class.path")
@@ -30,7 +30,7 @@ class PluginInsightTest extends Specification {
   def "generates plugin docs"() {
     given:
     prepare()
-    def t = project.tasks['pluginsInsight'] as PluginInsightTask
+    def t = project.tasks['pluginInsight'] as PluginInsightTask
 
     when:
     t.generate()
@@ -55,7 +55,7 @@ class PluginInsightTest extends Specification {
   def "generates plugin html docs"() {
     given:
     prepare()
-    def t = project.tasks['pluginsInsight'] as PluginInsightTask
+    def t = project.tasks['pluginInsight'] as PluginInsightTask
     def h = project.tasks['pluginInsightHtml'] as MarkdownToHtmlTask
 
     when:
