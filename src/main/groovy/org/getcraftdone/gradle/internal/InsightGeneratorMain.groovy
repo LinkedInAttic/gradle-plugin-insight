@@ -26,7 +26,7 @@ class InsightGeneratorMain {
     File htmlDir = new File(outputDir, "html")
     File markdownDir = new File(outputDir, "markdown")
 
-    plugins.each {
+    for (String it : plugins) {
       def markdown = new File(markdownDir, "${it}.md")
       def html = new File(htmlDir, "${it}.html")
       println "Generating documentation for plugin '$it' to dir: $outputDir"
