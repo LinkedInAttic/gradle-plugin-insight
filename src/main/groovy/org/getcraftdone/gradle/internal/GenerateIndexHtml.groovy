@@ -31,7 +31,7 @@ class GenerateIndexHtml implements Action<Task> {
         def index = new StringBuilder("""<h1>Project '$projectName' exposes following public Gradle plugins:</h1>
 <ul>
 """)
-        plugins.each {
+        for (String it: plugins) {
             index.append("    <li><a href='$it'>${it.replaceAll('.html$', '')}</a></li>\n")
         }
         output << index.append("</ul>")
