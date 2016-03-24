@@ -30,6 +30,7 @@ class PluginInsight implements Plugin<Project> {
         task.group = "Documentation"
         task.description = "Generates markdown documentation for all custom Gradle plugins developed in this project."
 
+        //TODO avoid compiling the classes
         task.classpath = project.files()
         task.classpath += project.sourceSets.main.output //so that we have user's plugins
         task.classpath += project.configurations.getByName("runtime") //so that we have user's plugins' classpath/dependencies
