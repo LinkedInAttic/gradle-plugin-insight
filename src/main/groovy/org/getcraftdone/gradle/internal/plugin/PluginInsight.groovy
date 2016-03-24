@@ -1,6 +1,7 @@
 package org.getcraftdone.gradle.internal.plugin
 
 import org.getcraftdone.gradle.api.PluginInsightTask
+import org.getcraftdone.gradle.internal.GenerateIndexHtml
 import org.getcraftdone.gradle.internal.project.DefaultProjectProvider
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -37,6 +38,9 @@ class PluginInsight implements Plugin<Project> {
         task.outputDir = outputDir
         task.projectProviderImpl = DefaultProjectProvider.name
         task.aspectjAgent = aop
+
+        //TODO does not belong here
+        task.doLast(new GenerateIndexHtml(new File(outputDir, "html"), project.name))
       }
     }
   }
