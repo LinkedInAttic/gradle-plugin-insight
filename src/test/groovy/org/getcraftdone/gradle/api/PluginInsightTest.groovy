@@ -52,7 +52,7 @@ class PluginInsightTest extends Specification {
 
     new File(t.outputDir, "html/sample-plugin.html").text == """<h2>Plugin 'sample-plugin' applies: </h2>
 
-<li><p>Plugin: SampleGradlePlugin</p>
+<li>Plugin: SampleGradlePlugin
 <ul>
     <li><p>Tasks:</p><ul>
         <li>sampleTask - This is sample task</li>
@@ -62,7 +62,7 @@ class PluginInsightTest extends Specification {
     </ul></li>
 </ul>
 </li>
-<li><p>Plugin: AnotherPlugin</p>
+<li>Plugin: AnotherPlugin
 <ul>
     <li><p>Tasks:</p><ul>
         <li>anotherTask - This is another task</li>

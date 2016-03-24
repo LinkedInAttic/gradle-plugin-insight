@@ -64,10 +64,10 @@ class DefaultModelSnapshot implements ModelSnapshot {
 
     String toHtml() {
         def sb = new StringBuilder()
-        sb.append("<li><p>Plugin: " + plugin.getClass().getSimpleName() + "</p>\n")
+        sb.append("<li>Plugin: " + plugin.getClass().getSimpleName() + "\n")
         sb.append("<ul>\n")
         if (tasks.isEmpty()) {
-            sb.append("    <li>Tasks: none</li>\n")
+            sb.append("    <li><p>Tasks: none</p></li>\n")
         } else {
             sb.append("    <li><p>Tasks:</p><ul>\n")
             tasks.each {
@@ -81,7 +81,7 @@ class DefaultModelSnapshot implements ModelSnapshot {
             sb.append("    </ul></li>\n")
         }
         if (configurations.isEmpty()) {
-            sb.append("    <li>Configurations: none</li>\n")
+            sb.append("    <li><p>Configurations: none</p></li>\n")
         } else {
             sb.append("    <li><p>Configurations:</p><ul>\n")
             configurations.each {
