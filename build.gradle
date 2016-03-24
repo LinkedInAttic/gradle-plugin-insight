@@ -6,7 +6,7 @@ buildscript {
 
 description = "Gradle Plugin Insight for automatic generation of plugin documentation"
 group = "org.getcraftdone"
-version = "0.9.1"
+version = "0.9.9"
 
 apply plugin: 'groovy'
 apply plugin: 'idea'
@@ -15,7 +15,6 @@ apply from: 'gradle/plugin-portal.gradle'
 
 repositories {
   mavenCentral()
-  maven { url 'http://dl.bintray.com/content/aalmiray/kordamp' } //for markdown to html plugin and dependencies
 }
 
 sourceCompatibility = 1.7
@@ -24,7 +23,6 @@ dependencies {
   compile gradleApi()
   compile localGroovy()
   compile "org.aspectj:aspectjrt:1.8.8"
-  compile "org.kordamp:markdown-gradle-plugin:1.0.0"
 
   testCompile "junit:junit:4.12"
   testCompile "org.spockframework:spock-core:1.0-groovy-2.4@jar"

@@ -1,7 +1,6 @@
 package org.getcraftdone.gradle.api
 
 import org.gradle.testfixtures.ProjectBuilder
-import org.kordamp.gradle.markdown.MarkdownToHtmlTask
 import spock.lang.Specification
 
 /**
