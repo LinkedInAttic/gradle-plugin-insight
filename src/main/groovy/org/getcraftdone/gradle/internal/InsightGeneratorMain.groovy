@@ -1,11 +1,13 @@
 package org.getcraftdone.gradle.internal
 
+import groovy.transform.CompileStatic
 import org.getcraftdone.gradle.api.ProjectProvider
 import org.getcraftdone.gradle.internal.plugin.PluginsFinder
 
 /**
  * Created by sfaber on 3/5/16.
  */
+@CompileStatic
 class InsightGeneratorMain {
 
   public static void main(String[] args) {
@@ -20,11 +22,16 @@ class InsightGeneratorMain {
     def outputDir = new File(args[2])
 
     def plugins = new PluginsFinder().getAllPlugins(pluginsIdDir)
+
+    File htmlDir = new File(outputDir, "html")
+    File markdownDir = new File(outputDir, "markdown")
+
     plugins.each {
-      def output = new File(outputDir, "${it}.md")
-      println "Generating documentation for plugin '$it' to file://$output.absolutePath"
+      def markdown = new File(markdownDir, "${it}.md")
+      def html = new File(htmlDir, "${it}.html")
+      println "Generating documentation for plugin '$it' to dir: $outputDir"
       def p = providerImpl.buildProject()
-      new InsightGenerator().generateMarkdown(p, it, output)
+      new InsightGenerator().generateInsight(p, it, markdown, html)
     }
   }
 }

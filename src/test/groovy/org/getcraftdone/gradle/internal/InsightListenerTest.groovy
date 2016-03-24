@@ -51,5 +51,26 @@ class InsightListenerTest extends Specification {
     * Configurations:
         - anotherConfiguration - This is another configuration
 """
+        p.getHtmlDoc() == """<li><p>Plugin: DummySamplePlugin</p>
+<ul>
+    <li><p>Tasks:</p><ul>
+        <li>sampleTask - This is sample task</li>
+        <li>sampleTask2 - This is sample task 2</li>
+    </ul></li>
+    <li><p>Configurations:</p><ul>
+        <li>sampleConfiguration - This is sample configuration</li>
+    </ul></li>
+</ul>
+</li>
+<li><p>Plugin: DummyOtherPlugin</p>
+<ul>
+    <li><p>Tasks:</p><ul>
+        <li>anotherTask - This is another task</li>
+    </ul></li>
+    <li><p>Configurations:</p><ul>
+        <li>anotherConfiguration - This is another configuration</li>
+    </ul></li>
+</ul>
+</li>"""
     }
 }

@@ -20,8 +20,13 @@ public interface ModelSnapshot {
     ModelSnapshot minus(ModelSnapshot other);
 
     /**
-     * Describes the snapshot in human readable way
+     * Describes the snapshot in human readable way (markdown format)
      */
     String toMarkdown();
+
+    /**
+     * Describes the snapshot in human readable way (html format)
+     */
+    String toHtml();
 
 }

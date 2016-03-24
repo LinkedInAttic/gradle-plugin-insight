@@ -14,14 +14,15 @@ class InsightGeneratorTest extends Specification {
   @Rule TemporaryFolder tmp = new TemporaryFolder()
 
   def "doc generation sanity test"() {
-    def f = tmp.newFile()
-    f << "Existing content needs to be replaced"
+    def markdown = tmp.newFile(); markdown << "Existing content needs to be replaced"
+    def html = tmp.newFile(); html << "foo"
 
     when:
-    new InsightGenerator().generateMarkdown(project, "java", f)
+    new InsightGenerator().generateInsight(project, "java", markdown, html)
 
     then:
     //sanity test only, we don't have aop agent to trigger the events needed to track changes to the model
-    f.text == "## Plugin 'java' applies: ##\n\n"
+    markdown.text == "## Plugin 'java' applies: ##\n\n"
+    html.text == "<h2>Plugin 'java' applies: </h2>\n\n"
   }
 }

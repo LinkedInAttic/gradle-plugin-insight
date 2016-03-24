@@ -23,8 +23,7 @@ class PluginInsight implements Plugin<Project> {
 
       project.dependencies.add("plugin-insight-aop", "org.aspectj:aspectjweaver:1.8.8")
 
-      def markdownOutputDir = project.file("$project.buildDir/doc/plugins/markdown")
-      def htmlOutputDir = project.file("$project.buildDir/doc/plugins/html")
+      def outputDir = project.file("$project.buildDir/docs/plugins")
 
       project.tasks.create("pluginInsight", PluginInsightTask) { PluginInsightTask task ->
         task.group = "Documentation"
@@ -37,21 +36,9 @@ class PluginInsight implements Plugin<Project> {
         task.classpath += project.buildscript.configurations.getByName("classpath") //so that we have PluginDoc classes
 
         task.pluginIdDir = project.file("src/main/resources/META-INF/gradle-plugins")
-        task.outputDir = markdownOutputDir
+        task.outputDir = outputDir
         task.projectProviderImpl = DefaultProjectProvider.name
         task.aspectjAgent = aop
-      }
-
-      project.tasks.create("pluginInsightHtml", MarkdownToHtmlTask) { MarkdownToHtmlTask task ->
-        task.group = "Documentation"
-        task.description = "Generates html documentation for all custom Gradle plugins developed in this project."
-
-        task.dependsOn "pluginInsight"
-
-        task.sourceDir = markdownOutputDir
-        task.outputDir = htmlOutputDir
-
-        task.doLast(new GenerateIndexHtml(htmlOutputDir, project.name))
       }
     }
   }

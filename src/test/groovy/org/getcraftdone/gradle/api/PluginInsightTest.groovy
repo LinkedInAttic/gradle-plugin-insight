@@ -27,7 +27,7 @@ class PluginInsightTest extends Specification {
     f.text = "implementation-class=testing.plugins.SampleGradlePlugin"
   }
 
-  def "generates plugin docs"() {
+  def "generates plugin insight documentation"() {
     given:
     prepare()
     def t = project.tasks['pluginInsight'] as PluginInsightTask
@@ -36,7 +36,7 @@ class PluginInsightTest extends Specification {
     t.generate()
 
     then:
-    new File(t.outputDir, "sample-plugin.md").text == """## Plugin 'sample-plugin' applies: ##
+    new File(t.outputDir, "markdown/sample-plugin.md").text == """## Plugin 'sample-plugin' applies: ##
 
 * Plugin: SampleGradlePlugin
     * Tasks:
@@ -50,21 +50,28 @@ class PluginInsightTest extends Specification {
     * Configurations:
         - anotherConfiguration - This is another configuration
 """
-  }
 
-  def "generates plugin html docs"() {
-    given:
-    prepare()
-    def t = project.tasks['pluginInsight'] as PluginInsightTask
-    def h = project.tasks['pluginInsightHtml'] as MarkdownToHtmlTask
+    new File(t.outputDir, "html/sample-plugin.html").text == """<h2>Plugin 'sample-plugin' applies: </h2>
 
-    when:
-    t.generate()
-    h.execute()
-
-    then:
-    println h.outputDir
-    new File(h.outputDir, "sample-plugin.html").text.contains "'sample-plugin'"
-    new File(h.outputDir, "index.html").text.contains "sample-plugin"
+<li><p>Plugin: SampleGradlePlugin</p>
+<ul>
+    <li><p>Tasks:</p><ul>
+        <li>sampleTask - This is sample task</li>
+    </ul></li>
+    <li><p>Configurations:</p><ul>
+        <li>sampleConfiguration - This is sample configuration</li>
+    </ul></li>
+</ul>
+</li>
+<li><p>Plugin: AnotherPlugin</p>
+<ul>
+    <li><p>Tasks:</p><ul>
+        <li>anotherTask - This is another task</li>
+    </ul></li>
+    <li><p>Configurations:</p><ul>
+        <li>anotherConfiguration - This is another configuration</li>
+    </ul></li>
+</ul>
+</li>"""
   }
 }

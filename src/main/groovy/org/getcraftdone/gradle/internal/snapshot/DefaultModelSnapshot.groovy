@@ -61,4 +61,41 @@ class DefaultModelSnapshot implements ModelSnapshot {
 
         sb.toString()
     }
+
+    String toHtml() {
+        def sb = new StringBuilder()
+        sb.append("<li><p>Plugin: " + plugin.getClass().getSimpleName() + "</p>\n")
+        sb.append("<ul>\n")
+        if (tasks.isEmpty()) {
+            sb.append("    <li>Tasks: none</li>\n")
+        } else {
+            sb.append("    <li><p>Tasks:</p><ul>\n")
+            tasks.each {
+                sb.append("        <li>$it.name")
+                if (it.description) {
+                    sb.append(" - $it.description</li>\n")
+                } else {
+                    sb.append("</li>\n")
+                }
+            }
+            sb.append("    </ul></li>\n")
+        }
+        if (configurations.isEmpty()) {
+            sb.append("    <li>Configurations: none</li>\n")
+        } else {
+            sb.append("    <li><p>Configurations:</p><ul>\n")
+            configurations.each {
+                sb.append("        <li>$it.name")
+                if (it.description) {
+                    sb.append(" - $it.description</li>\n")
+                } else {
+                    sb.append("</li>\n")
+                }
+            }
+            sb.append("    </ul></li>\n")
+        }
+        sb.append("</ul>\n")
+        sb.append("</li>")
+        sb.toString()
+    }
 }
