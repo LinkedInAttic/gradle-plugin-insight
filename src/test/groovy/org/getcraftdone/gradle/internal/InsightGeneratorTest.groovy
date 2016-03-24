@@ -18,7 +18,7 @@ class InsightGeneratorTest extends Specification {
     f << "Existing content needs to be replaced"
 
     when:
-    new InsightGenerator().textDoc(project, "java", f)
+    new InsightGenerator().generateMarkdown(project, "java", f)
 
     then:
     //sanity test only, we don't have aop agent to trigger the events needed to track changes to the model

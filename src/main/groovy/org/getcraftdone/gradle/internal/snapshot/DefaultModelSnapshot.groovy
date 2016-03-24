@@ -29,7 +29,7 @@ class DefaultModelSnapshot implements ModelSnapshot {
                 plugin: this.plugin)
     }
 
-    String describe() {
+    String toMarkdown() {
         def sb = new StringBuilder()
         sb.append("* Plugin: " + plugin.getClass().getSimpleName() + "\n")
         if (tasks.isEmpty()) {

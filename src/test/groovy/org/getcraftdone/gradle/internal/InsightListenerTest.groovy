@@ -38,7 +38,7 @@ class InsightListenerTest extends Specification {
         p.afterApplied(p1)
 
         then:
-        p.toString() == """* Plugin: DummySamplePlugin
+        p.getMarkdownDoc() == """* Plugin: DummySamplePlugin
     * Tasks:
         - sampleTask - This is sample task
         - sampleTask2 - This is sample task 2

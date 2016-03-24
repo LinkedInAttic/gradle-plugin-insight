@@ -22,6 +22,6 @@ public interface ModelSnapshot {
     /**
      * Describes the snapshot in human readable way
      */
-    String describe();
+    String toMarkdown();
 
 }

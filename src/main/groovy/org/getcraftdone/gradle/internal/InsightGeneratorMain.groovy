@@ -24,7 +24,7 @@ class InsightGeneratorMain {
       def output = new File(outputDir, "${it}.md")
       println "Generating documentation for plugin '$it' to file://$output.absolutePath"
       def p = providerImpl.buildProject()
-      new InsightGenerator().textDoc(p, it, output)
+      new InsightGenerator().generateMarkdown(p, it, output)
     }
   }
 }

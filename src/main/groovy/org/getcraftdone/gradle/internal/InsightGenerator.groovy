@@ -7,15 +7,15 @@ import org.gradle.api.Project
  */
 class InsightGenerator {
 
-  String textDoc(Project project, String pluginId) {
+  String generateMarkdown(Project project, String pluginId) {
     def listener = new InsightListener()
     listener.init(project)
     project.plugins.apply(pluginId)
-    "## Plugin '$pluginId' applies: ##\n\n" + listener.toString()
+    "## Plugin '$pluginId' applies: ##\n\n" + listener.getMarkdownDoc()
   }
 
-  void textDoc(Project project, String pluginId, File file) {
-    def text = textDoc(project, pluginId)
+  void generateMarkdown(Project project, String pluginId, File file) {
+    def text = generateMarkdown(project, pluginId)
     file.parentFile.mkdirs()
     file.createNewFile()
     file.text = text

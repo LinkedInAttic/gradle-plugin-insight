@@ -18,8 +18,8 @@ class InsightListener implements PluginLifecycleAspect.Listener {
     this.project = project
   }
 
-  public String toString() {
-    result*.describe().join("\n")
+  public String getMarkdownDoc() {
+    result*.toMarkdown().join("\n")
   }
 
   LinkedList<ModelSnapshot> queue = new LinkedList<>()
