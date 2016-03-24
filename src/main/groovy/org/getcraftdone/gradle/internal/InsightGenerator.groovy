@@ -17,6 +17,7 @@ class InsightGenerator {
   void textDoc(Project project, String pluginId, File file) {
     def text = textDoc(project, pluginId)
     file.parentFile.mkdirs()
-    file << text
+    file.createNewFile()
+    file.text = text
   }
 }

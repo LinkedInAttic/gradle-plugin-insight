@@ -15,6 +15,7 @@ class InsightGeneratorTest extends Specification {
 
   def "doc generation sanity test"() {
     def f = tmp.newFile()
+    f << "Existing content needs to be replaced"
 
     when:
     new InsightGenerator().textDoc(project, "java", f)
