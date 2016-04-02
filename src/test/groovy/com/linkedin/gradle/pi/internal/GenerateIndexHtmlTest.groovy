@@ -1,4 +1,4 @@
-package com.linkedin.gradle.internal
+package com.linkedin.gradle.pi.internal
 
 import org.junit.Rule
 import org.junit.rules.TemporaryFolder

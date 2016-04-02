@@ -1,8 +1,8 @@
-package com.linkedin.gradle.internal.project
+package com.linkedin.gradle.pi.internal.project
 
 import org.gradle.api.Project
 import org.gradle.testfixtures.ProjectBuilder
-import com.linkedin.gradle.api.ProjectProvider
+import com.linkedin.gradle.pi.api.ProjectProvider
 
 /**
  * Created by sfaber on 3/8/16.

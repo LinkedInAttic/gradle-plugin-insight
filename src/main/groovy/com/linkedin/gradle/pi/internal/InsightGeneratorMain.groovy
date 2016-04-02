@@ -1,8 +1,8 @@
-package com.linkedin.gradle.internal
+package com.linkedin.gradle.pi.internal
 
 import groovy.transform.CompileStatic
-import com.linkedin.gradle.api.ProjectProvider
-import com.linkedin.gradle.internal.plugin.PluginsFinder
+import com.linkedin.gradle.pi.api.ProjectProvider
+import com.linkedin.gradle.pi.internal.plugin.PluginsFinder
 
 /**
  * Created by sfaber on 3/5/16.

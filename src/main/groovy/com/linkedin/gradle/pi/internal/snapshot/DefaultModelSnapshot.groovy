@@ -1,4 +1,4 @@
-package com.linkedin.gradle.internal.snapshot
+package com.linkedin.gradle.pi.internal.snapshot
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project

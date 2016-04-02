@@ -1,4 +1,4 @@
-package com.linkedin.gradle.api
+package com.linkedin.gradle.pi.api
 
 import org.gradle.api.DefaultTask
 import org.gradle.api.GradleException
@@ -11,7 +11,7 @@ import org.gradle.api.tasks.InputFiles
 import org.gradle.api.tasks.OutputDirectory
 import org.gradle.api.tasks.TaskAction
 import org.gradle.process.JavaExecSpec
-import com.linkedin.gradle.internal.InsightGeneratorMain
+import com.linkedin.gradle.pi.internal.InsightGeneratorMain
 
 /**
  * Generates documentation about all plugins found in provided directory.

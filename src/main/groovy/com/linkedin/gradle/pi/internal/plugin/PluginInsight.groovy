@@ -1,8 +1,8 @@
-package com.linkedin.gradle.internal.plugin
+package com.linkedin.gradle.pi.internal.plugin
 
-import com.linkedin.gradle.api.PluginInsightTask
-import com.linkedin.gradle.internal.GenerateIndexHtml
-import com.linkedin.gradle.internal.project.DefaultProjectProvider
+import com.linkedin.gradle.pi.api.PluginInsightTask
+import com.linkedin.gradle.pi.internal.GenerateIndexHtml
+import com.linkedin.gradle.pi.internal.project.DefaultProjectProvider
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.plugins.JavaPlugin

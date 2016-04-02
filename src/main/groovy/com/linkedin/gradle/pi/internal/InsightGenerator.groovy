@@ -1,4 +1,4 @@
-package com.linkedin.gradle.internal
+package com.linkedin.gradle.pi.internal
 
 import groovy.transform.CompileStatic
 import org.gradle.api.Project

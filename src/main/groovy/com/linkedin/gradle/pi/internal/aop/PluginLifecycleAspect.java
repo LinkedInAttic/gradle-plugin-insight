@@ -1,4 +1,4 @@
-package com.linkedin.gradle.internal.aop;
+package com.linkedin.gradle.pi.internal.aop;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;

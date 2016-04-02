@@ -1,10 +1,10 @@
-package com.linkedin.gradle.internal
+package com.linkedin.gradle.pi.internal
 
-import com.linkedin.gradle.internal.snapshot.ModelSnapshot
-import com.linkedin.gradle.internal.snapshot.DefaultModelSnapshot
+import com.linkedin.gradle.pi.internal.snapshot.ModelSnapshot
+import com.linkedin.gradle.pi.internal.snapshot.DefaultModelSnapshot
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import com.linkedin.gradle.internal.aop.PluginLifecycleAspect
+import com.linkedin.gradle.pi.internal.aop.PluginLifecycleAspect
 
 /**
  * Created by sfaber on 3/5/16.

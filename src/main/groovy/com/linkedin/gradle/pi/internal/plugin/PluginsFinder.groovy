@@ -1,4 +1,4 @@
-package com.linkedin.gradle.internal.plugin
+package com.linkedin.gradle.pi.internal.plugin
 
 /**
  * Created by sfaber on 3/6/16.
