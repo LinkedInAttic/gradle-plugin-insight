@@ -1,8 +1,8 @@
-package org.getcraftdone.gradle.internal.plugin
+package com.linkedin.gradle.internal.plugin
 
-import org.getcraftdone.gradle.api.PluginInsightTask
-import org.getcraftdone.gradle.internal.GenerateIndexHtml
-import org.getcraftdone.gradle.internal.project.DefaultProjectProvider
+import com.linkedin.gradle.api.PluginInsightTask
+import com.linkedin.gradle.internal.GenerateIndexHtml
+import com.linkedin.gradle.internal.project.DefaultProjectProvider
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.plugins.JavaPlugin

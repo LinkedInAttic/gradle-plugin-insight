@@ -1,4 +1,4 @@
-package org.getcraftdone.gradle.api;
+package com.linkedin.gradle.api;
 
 import org.gradle.api.Project;
 

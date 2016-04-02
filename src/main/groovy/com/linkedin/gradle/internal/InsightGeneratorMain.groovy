@@ -1,8 +1,8 @@
-package org.getcraftdone.gradle.internal
+package com.linkedin.gradle.internal
 
 import groovy.transform.CompileStatic
-import org.getcraftdone.gradle.api.ProjectProvider
-import org.getcraftdone.gradle.internal.plugin.PluginsFinder
+import com.linkedin.gradle.api.ProjectProvider
+import com.linkedin.gradle.internal.plugin.PluginsFinder
 
 /**
  * Created by sfaber on 3/5/16.

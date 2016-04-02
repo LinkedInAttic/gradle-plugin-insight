@@ -1,4 +1,4 @@
-package org.getcraftdone.gradle.internal.plugin
+package com.linkedin.gradle.internal.plugin
 
 /**
  * Created by sfaber on 3/6/16.

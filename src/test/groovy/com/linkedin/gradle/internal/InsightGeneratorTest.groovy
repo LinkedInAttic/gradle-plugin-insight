@@ -1,4 +1,4 @@
-package org.getcraftdone.gradle.internal
+package com.linkedin.gradle.internal
 
 import org.gradle.testfixtures.ProjectBuilder
 import org.junit.Rule

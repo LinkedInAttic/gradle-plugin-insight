@@ -1,4 +1,4 @@
-package org.getcraftdone.gradle.internal
+package com.linkedin.gradle.internal
 
 import groovy.transform.CompileStatic
 import org.gradle.api.Action

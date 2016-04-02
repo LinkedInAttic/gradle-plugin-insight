@@ -1,4 +1,4 @@
-package org.getcraftdone.gradle.internal
+package com.linkedin.gradle.internal
 
 import org.junit.Rule
 import org.junit.rules.TemporaryFolder
