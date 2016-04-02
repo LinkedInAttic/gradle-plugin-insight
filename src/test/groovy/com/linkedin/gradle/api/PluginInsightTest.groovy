@@ -11,7 +11,7 @@ class PluginInsightTest extends Specification {
   def project = new ProjectBuilder().build()
 
   private void prepare() {
-    project.plugins.apply("com.linkedin.gradle.plugin-insight")
+    project.plugins.apply("com.linkedin.plugin-insight")
     project.plugins.apply("java")
     project.repositories.mavenCentral()
     def t = project.tasks['pluginInsight'] as PluginInsightTask
