@@ -1,14 +1,28 @@
 ## Goal
 
-Automatic generation of plugin documentation, based on what the plugin changes in the project (e.g. track added tasks, configurations, dependencies, etc)
+Automatic, effortless, accurate documentation for any Gradle plugin.
+Seriously.
 
-## Status
+This plugin can be even better! 
+Sign up for one of the features we plan.
+There is nothing better than the smell of fresh pull request in the morning.
 
-Used currently in one of our plugins. Contributors are more than welcome!!! Making the html report look better would be great!!!
+## Motivation
+
+At LinkedIn we created and maintain many custom Gradle plugins to support our engineers across many technology stacks.
+We needed an effortless way to accurately document our plugins, without the necessity to maintain the documentation manually.
+In march'16 we came up with an idea to generate absolutely accurate documentation of any Gradle plugin.
+To generate the documentation, we apply given plugin to a test Gradle project and observe changes in the model.
+This way, we can detect and document things like:
+
+ - tasks the plugin adds
+ - other plugins the plugin applies
+ - configurations the plugin adds
+ - ...
 
 ## Usage
 
-In order to generate documentation for all custom Gradle plugins developed in given project:
+In order to generate documentation for all public custom Gradle plugins developed in given project:
 
     apply plugin: 'com.linkedin.plugin-insight'
 
@@ -22,18 +36,19 @@ Then inspect the contents of "build/docs/plugins" (configurable at task level)
 
  - "org.aspectj:aspectjweaver:" dependency must be resolvable in the project.
  For example, this can be achieved by adding 'mavenCentral' repository to current project.
- - Does not document the model changes applied during 'beforeEvaluate', 'afterEvaluate', etc. (TODO)
+ - Does not document the model changes applied during 'beforeEvaluate', 'afterEvaluate', etc. (planned)
  - Assumes that plugin ids can be found in 'src/main/resources/META-INF/gradle-plugins' (configurable at the task level)
- - Generates markdown and html only
+ - Generates markdown and html
 
-## TODOs, future ides an plans
+## Plan
 
-Contributors we need help! :)
+Help us making this plugin even better!
 
- - make the html report pretty!!!
- - generate at runtime for any plugin
  - support afterEvaluate
- - filter the plugins, show/hide the internal plugins
+ - make the html report look professionally beautiful (there are times in life when I wished I was a web dev)
+ - make the markdown report neat and tidy
+ - generate at runtime, on-demand, to the console for any plugin, even built-in Gradle plugins
+ - filter out irrelevant plugins (option?), show/hide the internal plugins
  - combine with javadoc
  - show plugin id
  - sort plugins / tasks
