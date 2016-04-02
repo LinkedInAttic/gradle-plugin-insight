@@ -10,7 +10,7 @@ Used currently in one of our plugins. Contributors are more than welcome!!! Maki
 
 In order to generate documentation for all custom Gradle plugins developed in given project:
 
-    apply plugin: 'plugin-insight'
+    apply plugin: 'com.linkedin.plugin-insight'
 
 Then execute:
 
