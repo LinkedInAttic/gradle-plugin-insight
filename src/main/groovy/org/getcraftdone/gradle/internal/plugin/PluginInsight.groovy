@@ -20,7 +20,7 @@ class PluginInsight implements Plugin<Project> {
               "(needed for weaving in hooks to Gradle plugin lifecycle)"
       aop.visible = false
 
-      project.dependencies.add("plugin-insight-aop", "org.aspectj:aspectjweaver:1.8.8")
+      project.dependencies.add("plugin-insight-aop", "org.aspectj:aspectjweaver:1.8.5")
 
       def outputDir = project.file("$project.buildDir/docs/plugins")
 
