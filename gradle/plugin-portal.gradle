@@ -2,8 +2,8 @@
 apply plugin: "com.gradle.plugin-publish"
 
 pluginBundle {
-    website = 'https://github.com/szczepiq/gradle-plugin-insight'
-    vcsUrl = 'https://github.com/szczepiq/gradle-plugin-insight'
+    website = 'https://github.com/linkedin/gradle-plugin-insight'
+    vcsUrl = 'https://github.com/linkedin/gradle-plugin-insight'
     description = project.description
     tags = ['documentation', 'autogeneration', 'markdown']
 
