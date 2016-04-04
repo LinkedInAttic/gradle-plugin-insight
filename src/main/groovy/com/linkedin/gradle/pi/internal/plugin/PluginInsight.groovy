@@ -33,6 +33,7 @@ class PluginInsight implements Plugin<Project> {
         task.classpath += project.sourceSets.main.output //so that we have user's plugins
         task.classpath += project.configurations.getByName("runtime") //so that we have user's plugins' classpath/dependencies
         task.classpath += project.buildscript.configurations.getByName("classpath") //so that we have PluginDoc classes
+        task.classpath += project.rootProject.buildscript.configurations.getByName("classpath") //
 
         task.pluginIdDir = project.file("src/main/resources/META-INF/gradle-plugins")
         task.outputDir = outputDir

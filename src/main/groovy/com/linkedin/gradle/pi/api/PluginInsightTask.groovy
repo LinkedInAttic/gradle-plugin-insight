@@ -72,7 +72,7 @@ class PluginInsightTask extends DefaultTask {
     }
 
     if (result.exitValue != 0) {
-      throw new GradleException("Generation of plugin documentation failed (exit value: $result.exitValue)." +
+      throw new GradleException("Process responsible for generation of plugin documentation failed (exit value: $result.exitValue)." +
               "\nStandard output from the java process was written to file://$outputLog")
     }
   }

@@ -25,6 +25,10 @@ class GenerateIndexHtmlTest extends Specification {
     def "plugins"() {
         def dir = tmp.newFolder()
         assert dir.isDirectory() && dir.listFiles().length == 0
+
+        //TODO fix the problem with incorrect index.html
+//        new File(dir, "index.html") <<  'existing content that should be replaced'
+
         new File(dir, "a-plugin.html") << ""
         new File(dir, "b-plugin.html") << ""
 
