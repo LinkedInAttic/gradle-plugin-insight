@@ -12,6 +12,11 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-This product has compile dependency on AspectJ
-https://eclipse.org/aspectj/
-Eclipse Public License - v1.0
+This product has following compile dependencies:
+    AspectJ (https://eclipse.org/aspectj) - Eclipse Public License - 1.0
+
+This product has needs following dependencies for testing:
+    JUnit (junit.org) - Eclipse Public License 1.0
+    Spock (spockframework.org) - Apache License 2.0
+    Cglib (https://github.com/cglib/cglib) - Apache License 2.0
+    Objenesis (http://objenesis.org/) - Apache License 2.0
